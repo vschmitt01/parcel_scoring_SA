@@ -4,9 +4,19 @@ import pdfplumber
 import re
 from io import BytesIO
 
-st.title("Victoria Planning Report Extractor")
+st.title("South Australia Planning Report Extractor")
 
 uploaded_files = st.file_uploader("Upload one or more PDFs", type="pdf", accept_multiple_files=True)
+
+FIELDS = ['File Name', 
+          'Adress', 
+          'Council', 
+          'Valuation Number', 
+          'Title Reference',
+          'Plan No. Parcel No.', 
+          'Zones', 
+          'Overlays'
+          ]
 
 def extract_field(label, text):
     """
@@ -110,3 +120,4 @@ if uploaded_files:
         file_name="parsed_sites.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
+
