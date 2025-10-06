@@ -8,8 +8,7 @@ st.title("South Australia Planning Report Extractor")
 
 uploaded_files = st.file_uploader("Upload one or more PDFs", type="pdf", accept_multiple_files=True)
 
-FIELDS = ['File Name', 
-          'Adress', 
+FIELDS = ['Adress', 
           'Council', 
           'Valuation Number', 
           'Title Reference',
@@ -120,5 +119,6 @@ if uploaded_files:
         file_name="parsed_sites.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
+
 
 
