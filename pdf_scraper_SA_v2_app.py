@@ -108,7 +108,7 @@ if uploaded_files:
         records.append(entry)
 
     
-    df = pd.DataFrame(records, columns=["File Name"])
+    df = pd.DataFrame(records, columns=["File Name"] + FIELDS)
     st.dataframe(df)
     
     # Download Excel
@@ -120,4 +120,5 @@ if uploaded_files:
         file_name="parsed_sites.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
+
 
