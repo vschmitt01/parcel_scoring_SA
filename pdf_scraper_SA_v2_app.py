@@ -65,7 +65,11 @@ def extract_overlays(text):
         if re.match(r"Overlays\s*$", stripped, re.IGNORECASE):
             collecting = True
             continue
-
+                  
+        # Stop capturing at 'Variations'
+        if re.match(r'^Variations$', line, re.IGNORECASE):
+            break
+                  
         if collecting:
             # Stop collecting if we reach another section label (heuristic)
             if re.match(r"^[A-Z][A-Za-z\s]+:$", stripped) or stripped == "":
@@ -119,6 +123,7 @@ if uploaded_files:
         file_name="parsed_sites.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
+
 
 
 
